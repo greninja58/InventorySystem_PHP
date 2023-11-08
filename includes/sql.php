@@ -243,6 +243,15 @@ function tableExists($table){
     $sql .=" LIMIT 1";
     return find_by_sql($sql);
   }
+  function find_all_product_info_by_title2($p_id){
+    global $db;
+    $sql  = "SELECT * FROM products ";
+    $sql .= " WHERE id ='{$p_id}'";
+    $sql .=" LIMIT 1";
+
+    $result = find_by_sql($sql);
+     return $result;
+  }
 
   /*--------------------------------------------------------------*/
   /* Function for Update product quantity

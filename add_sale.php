@@ -16,7 +16,9 @@
           $date      = $db->escape($_POST['date']);
           $s_date    = make_date();
 
-          $sql  = "INSERT INTO sales (";
+          $temp = find_all_product_info_by_title2($p_id);
+          if($temp[0]['quantity'] >= $s_qty){
+            $sql  = "INSERT INTO sales (";
           $sql .= " product_id,qty,price,date";
           $sql .= ") VALUES (";
           $sql .= "'{$p_id}','{$s_qty}','{$s_total}','{$s_date}'";
@@ -30,6 +32,8 @@
                   $session->msg('d',' Sorry failed to add!');
                   redirect('add_sale.php', false);
                 }
+          }
+          
         } else {
            $session->msg("d", $errors);
            redirect('add_sale.php',false);
