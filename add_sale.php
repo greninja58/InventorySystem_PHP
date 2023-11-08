@@ -32,6 +32,9 @@
                   $session->msg('d',' Sorry failed to add!');
                   redirect('add_sale.php', false);
                 }
+          }else{
+            $session->msg('d',' Please add a quantity value in range of stock!');
+            redirect('add_sale.php', false);
           }
           
         } else {
@@ -75,6 +78,7 @@
             <th> Item </th>
             <th> Price </th>
             <th> Qty </th>
+            <th> InStock Qty </th>
             <th> Total </th>
             <th> Date</th>
             <th> Action</th>

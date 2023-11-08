@@ -47,6 +47,7 @@
           $html .= "<td id=\"s_qty\">";
           $html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
           $html  .= "</td>";
+          $html .= "<td id=\"curr_qty\">" .$result['quantity']."</td>";
           $html  .= "<td>";
           $html  .= "<input type=\"text\" class=\"form-control\" name=\"total\" value=\"{$result['sale_price']}\">";
           $html  .= "</td>";
