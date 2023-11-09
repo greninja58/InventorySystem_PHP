@@ -33,8 +33,11 @@
     $product_title = remove_junk($db->escape($_POST['p_name']));
     if($results = find_all_product_info_by_title($product_title)){
         foreach ($results as $result) {
-
-          $html .= "<tr>";
+          if($result['quantity'] == 0){
+            $html .="<div>Out of stock<div>";
+          }
+          else{
+            $html .= "<tr>";
 
           $html .= "<td id=\"s_name\">".$result['name']."</td>";
           $html .= "<input type=\"hidden\" name=\"s_id\" value=\"{$result['id']}\">";
@@ -44,6 +47,7 @@
           $html .= "<td id=\"s_qty\">";
           $html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
           $html  .= "</td>";
+          $html .= "<td id=\"curr_qty\">" .$result['quantity']."</td>";
           $html  .= "<td>";
           $html  .= "<input type=\"text\" class=\"form-control\" name=\"total\" value=\"{$result['sale_price']}\">";
           $html  .= "</td>";
@@ -54,6 +58,8 @@
           $html  .= "<button type=\"submit\" name=\"add_sale\" class=\"btn btn-primary\">Add sale</button>";
           $html  .= "</td>";
           $html  .= "</tr>";
+          }
+          
 
         }
     } else {
