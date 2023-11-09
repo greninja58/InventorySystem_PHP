@@ -35,12 +35,12 @@
                       Profile
                   </a>
               </li>
-             <li>
+             <!-- <li>
                  <a href="edit_account.php" title="edit account">
                      <i class="glyphicon glyphicon-cog"></i>
                      Settings
                  </a>
-             </li>
+             </li> -->
              <li class="last">
                  <a href="logout.php">
                      <i class="glyphicon glyphicon-off"></i>
