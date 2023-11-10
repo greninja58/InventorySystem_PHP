@@ -207,7 +207,7 @@ class  Media {
          unlink($this->productPath.'/'.$this->fileName);
          return true;
      } else {
-       $this->error[] = "Photo deletion failed Or Missing Prm.";
+       $this->errors[] = "Photo deletion failed Or Missing Prm.";
        return false;
      }
 

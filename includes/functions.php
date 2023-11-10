@@ -43,7 +43,7 @@ function validate_fields($var){
 /* Function for Display Session Message
    Ex echo displayt_msg($message);
 /*--------------------------------------------------------------*/
-function display_msg($msg =''){
+function display_msg($msg =[]){
    $output = array();
    if(!empty($msg)) {
       foreach ($msg as $key => $value) {
@@ -78,8 +78,9 @@ function total_price($totals){
    foreach($totals as $total ){
      $sum += $total['total_saleing_price'];
      $sub += $total['total_buying_price'];
-     $profit = $sum - $sub;
+     
    }
+   $profit = $sum - $sub;
    return array($sum,$profit);
 }
 /*--------------------------------------------------------------*/
