@@ -1,0 +1,2 @@
+index-auth-admin-header
+if clicked logout then redirect to index
