@@ -160,11 +160,11 @@
       <?php foreach ($recent_products as  $recent_product): ?>
             <a class="list-group-item clearfix" href="edit_product.php?id=<?php echo    (int)$recent_product['id'];?>">
                 <h4 class="list-group-item-heading">
-                 <?php if($recent_product['media_id'] === '0'): ?>
+                 <!-- <?php if($recent_product['media_id'] === '0'): ?>
                     <img class="img-avatar img-circle" src="uploads/products/no_image.png" alt="">
                   <?php else: ?>
                   <img class="img-avatar img-circle" src="uploads/products/<?php echo $recent_product['image'];?>" alt="" />
-                <?php endif;?>
+                <?php endif;?> -->
                 <?php echo remove_junk(first_character($recent_product['name']));?>
                   <span class="label label-warning pull-right">
                  $<?php echo (int)$recent_product['sale_price']; ?>

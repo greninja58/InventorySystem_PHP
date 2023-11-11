@@ -50,11 +50,11 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- Table structure for table `media`
 --
 
-CREATE TABLE IF NOT EXISTS `media` (
-`id` int(11) unsigned NOT NULL,
-  `file_name` varchar(255) NOT NULL,
-  `file_type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE IF NOT EXISTS `media` (
+-- `id` int(11) unsigned NOT NULL,
+--   `file_name` varchar(255) NOT NULL,
+--   `file_type` varchar(100) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -211,14 +211,14 @@ ALTER TABLE `categories`
 --
 -- Indexes for table `media`
 --
-ALTER TABLE `media`
- ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
+-- ALTER TABLE `media`
+--  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD KEY `categorie_id` (`categorie_id`), ADD KEY `media_id` (`media_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD KEY `categorie_id` (`categorie_id`);
 
 --
 -- Indexes for table `sales`
@@ -249,9 +249,9 @@ ALTER TABLE `categories`
 MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `media`
---
-ALTER TABLE `media`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+-- --
+-- ALTER TABLE `media`
+-- MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `products`
 --
