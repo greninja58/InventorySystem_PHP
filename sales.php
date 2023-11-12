@@ -23,6 +23,7 @@ $sales = find_all_sale();
           </strong>
           <div class="pull-right">
             <a href="add_sale.php" class="btn btn-primary">Add sale</a>
+            <a href="print_sale.php" class="btn btn-primary text-red-500" ">Save PDF</a>
           </div>
         </div>
         <div class="panel-body">
