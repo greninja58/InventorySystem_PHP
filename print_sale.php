@@ -5,7 +5,7 @@ require_once('TCPDF-main/tcpdf.php');
 date_default_timezone_set(date_default_timezone_get());
 
 // Check the user's permission level
-page_require_level(2);
+page_require_level(3);
 
 // Get the products from the database
 $sales = find_all_sale();
