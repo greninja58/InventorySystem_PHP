@@ -1,2 +1,8 @@
 index-auth-admin-header
 if clicked logout then redirect to index
+header and footer are included in all php files
+_GET and _POST are global associative arrays which can be accessed in any file of htdocs folder
+_POST array is made when when something is submitted with keys as 'name' of input tags
+and _GET array is made when get request is made using href attribute 
+
+escape and removejunk

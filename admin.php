@@ -185,9 +185,8 @@
 </div>
 
  </div>
- <canvas id="myChart1" style="width:100%;max-width:900px;margin-top:60px"></canvas>
- <canvas id="myChart2" style="width:100%;max-width:900px;margin-left:60px;margin-top:60px"></canvas>
- <canvas id="myChart3" style="width:100%;max-width:900px;margin-left:60px;margin-top:60px"></canvas>
+ <canvas id="myChart1" style="max-width: 900px; display: block; margin: auto; height: 450px; width: 900px;"></canvas>
+ 
 <script>
 let xValuesHighest = [];
 let yValuesHighest = [];
@@ -235,66 +234,66 @@ new Chart("myChart1", {
   }
 });
 
-for (var i = 0, row; row = table2.rows[i]; i++) {
+// for (var i = 0, row; row = table2.rows[i]; i++) {
 
-for (var j = 0, col; col = row.cells[j]; j++) {
-  if(col.id === "name_latest"){
-    xValuesLatest.push(col.innerText);
+// for (var j = 0, col; col = row.cells[j]; j++) {
+//   if(col.id === "name_latest"){
+//     xValuesLatest.push(col.innerText);
    
-  }else if(col.id === "sale_latest"){
+//   }else if(col.id === "sale_latest"){
   
-   yValuesLatest.push(col.innerText.substring(1, col.innerText.length));
-   maxLatest = Math.max(yValuesLatest[yValuesLatest.length - 1], maxLatest);
-  }
-}  
-}
-new Chart("myChart2", {
-  type: "line",
-  data: { 
-    labels: xValuesLatest,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValuesLatest
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0, max:maxLatest}}],
-    }
-  }
-});
+//    yValuesLatest.push(col.innerText.substring(1, col.innerText.length));
+//    maxLatest = Math.max(yValuesLatest[yValuesLatest.length - 1], maxLatest);
+//   }
+// }  
+// }
+// new Chart("myChart2", {
+//   type: "line",
+//   data: { 
+//     labels: xValuesLatest,
+//     datasets: [{
+//       fill: false,
+//       lineTension: 0,
+//       backgroundColor: "rgba(0,0,255,1.0)",
+//       borderColor: "rgba(0,0,255,0.1)",
+//       data: yValuesLatest
+//     }]
+//   },
+//   options: {
+//     legend: {display: false},
+//     scales: {
+//       yAxes: [{ticks: {min: 0, max:maxLatest}}],
+//     }
+//   }
+// });
 
 
-var divE =document.getElementById("recently_added");
-for(let i = 0;i<divE.children.length;i++){
-  xValuesRecently.push(divE.children[i].querySelector('#name_recently').innerText);
-  yValuesRecently.push(divE.children[i].querySelector('#price_recently').innerText.substring(1, divE.children[i].querySelector('#price_recently').innerText.length));
-  maxRecently = Math.max(yValuesRecently[yValuesRecently.length - 1], maxRecently);
-}
+// var divE =document.getElementById("recently_added");
+// for(let i = 0;i<divE.children.length;i++){
+//   xValuesRecently.push(divE.children[i].querySelector('#name_recently').innerText);
+//   yValuesRecently.push(divE.children[i].querySelector('#price_recently').innerText.substring(1, divE.children[i].querySelector('#price_recently').innerText.length));
+//   maxRecently = Math.max(yValuesRecently[yValuesRecently.length - 1], maxRecently);
+// }
 
-new Chart("myChart3", {
-  type: "line",
-  data: { 
-    labels: xValuesRecently,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValuesRecently
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0, max:maxRecently}}],
-    }
-  }
-});
+// new Chart("myChart3", {
+//   type: "line",
+//   data: { 
+//     labels: xValuesRecently,
+//     datasets: [{
+//       fill: false,
+//       lineTension: 0,
+//       backgroundColor: "rgba(0,0,255,1.0)",
+//       borderColor: "rgba(0,0,255,0.1)",
+//       data: yValuesRecently
+//     }]
+//   },
+//   options: {
+//     legend: {display: false},
+//     scales: {
+//       yAxes: [{ticks: {min: 0, max:maxRecently}}],
+//     }
+//   }
+// });
 
 });
 
@@ -304,7 +303,5 @@ new Chart("myChart3", {
   <div class="row">
 
   </div>
-
-
 
 <?php include_once('layouts/footer.php'); ?>

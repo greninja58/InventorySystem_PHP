@@ -29,9 +29,9 @@ a
 }.page{
   position: relative;
   display: block;
-  top: 50px;
+  top: 100px;
   left: 0;
-  padding: 35px 15px 20px 270px;
+  padding: 35px 15px 20px 30px;
 }
 
 .page-lgn{
@@ -171,17 +171,19 @@ header > .logo:hover {
   text-align: center;
 }
 .sidebar {
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    /* font-size: xx-large; */
-    padding: 65px 0 0;
-    height: 100%;
-    width: 250px;
-    background: linear-gradient(to bottom, white, #0285f0); 
-    border: 1px solid black;
-    text-align: center;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  /* font-size: xx-large; */
+  padding: 65px 0 0;
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, white, #0285f0);
+  border: 1px solid black;
+  text-align: center;
   }
   
   .sidebar ul li:hover, .submenu ul li:hover {
@@ -195,15 +197,18 @@ header > .logo:hover {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: row;
   }
   
   .sidebar ul li {
     display: block;
+    padding-right: 30px;
   }
   
   .sidebar ul li:hover,
   ul.submenu {
-    background-color: #0285f0; 
+     
     border-left: 2px, solid, red;
 
   }
