@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Add Product';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+ 
   page_require_level(2);
   $all_categories = find_all('categories');
   // $all_photo = find_all('media');
@@ -16,18 +16,14 @@
      $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
      $p_buy   = remove_junk($db->escape($_POST['buying-price']));
      $p_sale  = remove_junk($db->escape($_POST['saleing-price']));
-    //  if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
-    //    $media_id = '0';
-    //  } else {
-    //    $media_id = remove_junk($db->escape($_POST['product-photo']));
-    //  }
+    
      $date    = make_date();
      $query  = "INSERT INTO products (";
-    //  $query .=" name,quantity,buy_price,sale_price,categorie_id,media_id,date";
+    
      $query .=" name,quantity,buy_price,sale_price,categorie_id,date";
 
      $query .=") VALUES (";
-    //  $query .=" '{$p_name}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}'";
+    
      $query .=" '{$p_name}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}',  '{$date}'";
      
      $query .=")";

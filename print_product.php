@@ -1,19 +1,19 @@
 <?php
 require_once('includes/load.php');
 require_once('TCPDF-main/tcpdf.php');
-// Set default time zone according to system
+
 date_default_timezone_set(date_default_timezone_get());
 
-// Check the user's permission level
+
 page_require_level(2);
 
-// Get the products from the database
+
 $products = join_product_table();
 
-// Create a new PDF document with A4 format
+
 $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 
-// Set the document information
+
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Admin');
 $pdf->SetTitle('Product List');

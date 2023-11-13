@@ -16,7 +16,7 @@ if($session->isUserLoggedIn(true)) {
     background-repeat: no-repeat;
   }
   .login-page {
-    background: rgba(255, 255, 255, 0.8); /* Add an overlay to enhance readability */
+    background: rgba(255, 255, 255, 0.8); 
     padding: 20px;
   }
 </style>

@@ -179,7 +179,7 @@ header > .logo:hover {
     padding: 65px 0 0;
     height: 100%;
     width: 250px;
-    background: linear-gradient(to bottom, white, #0285f0); /* Yellowish gradient background */
+    background: linear-gradient(to bottom, white, #0285f0); 
     border: 1px solid black;
     text-align: center;
   }
@@ -203,20 +203,20 @@ header > .logo:hover {
   
   .sidebar ul li:hover,
   ul.submenu {
-    background-color: #0285f0; /* Light yellow background on hover */
+    background-color: #0285f0; 
     border-left: 2px, solid, red;
 
   }
   
   .sidebar ul li a:hover {
-    color: #333; /* Dark text color on hover for better contrast */
+    color: #333; 
     border-left: 2px, solid, red;
 
   }
   
   .sidebar ul li a,
   ul.submenu li a {
-    color: #333; /* Dark text color */
+    color: #333; 
     display: block;
     overflow: hidden;
     position: relative;
@@ -234,7 +234,7 @@ header > .logo:hover {
   }
   
   .sidebar ul li a i {
-    color: #333; /* Dark text color for icons */
+    color: #333; 
     padding: 15px 22px;
     text-align: center;
   }

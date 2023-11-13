@@ -1,26 +1,19 @@
 <?php
  $errors = array();
 
- /*--------------------------------------------------------------*/
- /* Function for Remove escapes special
- /* characters in a string for use in an SQL statement
- /*--------------------------------------------------------------*/
+
 function real_escape($str){
   global $con;
   $escape = mysqli_real_escape_string($con,$str);
   return $escape;
 }
-/*--------------------------------------------------------------*/
-/* Function for Remove html characters
-/*--------------------------------------------------------------*/
+
 function remove_junk($str){
   $str = nl2br($str);
   $str = htmlspecialchars(strip_tags($str, ENT_QUOTES));
   return $str;
 }
-/*--------------------------------------------------------------*/
-/* Function for Uppercase first character
-/*--------------------------------------------------------------*/
+
 function first_character($str){
   $val = str_replace('-'," ",$str);
   $val = ucfirst($val);
@@ -39,10 +32,7 @@ function validate_fields($var){
     }
   }
 }
-/*--------------------------------------------------------------*/
-/* Function for Display Session Message
-   Ex echo displayt_msg($message);
-/*--------------------------------------------------------------*/
+
 function display_msg($msg =[]){
    $output = array();
    if(!empty($msg)) {
@@ -57,9 +47,6 @@ function display_msg($msg =[]){
      return "" ;
    }
 }
-/*--------------------------------------------------------------*/
-/* Function for redirect
-/*--------------------------------------------------------------*/
 function redirect($url, $permanent = false)
 {
     if (headers_sent() === false)
@@ -69,9 +56,7 @@ function redirect($url, $permanent = false)
 
     exit();
 }
-/*--------------------------------------------------------------*/
-/* Function for find out total saleing price, buying price and profit
-/*--------------------------------------------------------------*/
+
 function total_price($totals){
    $sum = 0;
    $sub = 0;
@@ -83,31 +68,21 @@ function total_price($totals){
    $profit = $sum - $sub;
    return array($sum,$profit);
 }
-/*--------------------------------------------------------------*/
-/* Function for Readable date time
-/*--------------------------------------------------------------*/
+
 function read_date($str){
      if($str)
       return date('F j, Y, g:i:s a', strtotime($str));
      else
       return null;
   }
-/*--------------------------------------------------------------*/
-/* Function for  Readable Make date time
-/*--------------------------------------------------------------*/
+
 function make_date(){
   return strftime("%Y-%m-%d %H:%M:%S", time());
 }
-/*--------------------------------------------------------------*/
-/* Function for  Readable date time
-/*--------------------------------------------------------------*/
 function count_id(){
   static $count = 1;
   return $count++;
 }
-/*--------------------------------------------------------------*/
-/* Function for Creting random string
-/*--------------------------------------------------------------*/
 function randString($length = 5)
 {
   $str='';
