@@ -15,7 +15,7 @@ class MySqli_DB {
 /*--------------------------------------------------------------*/
 public function db_connect()
 {
-  $this->con = mysqli_connect(DB_HOST,DB_USER,DB_PASS, "", 3306);
+  $this->con = mysqli_connect(DB_HOST,DB_USER,DB_PASS, "", 3307);
   if(!$this->con)
          {
            die(" Database connection failed:". mysqli_connect_error());

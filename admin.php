@@ -24,7 +24,7 @@
     <a href="users.php" style="color:black;">
 		<div class="col-md-3">
        <div class="panel panel-box clearfix">
-         <div class="panel-icon pull-left" style="background: #FE7F2D;">
+         <div class="panel-icon pull-left" style="background: #1b1e62;">
           <i class="glyphicon glyphicon-user"></i>
         </div>
         <div class="panel-value pull-right">
@@ -38,7 +38,7 @@
 	<a href="categorie.php" style="color:black;">
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
-         <div class="panel-icon pull-left" style="background: #FE7F2D;">
+         <div class="panel-icon pull-left" style="background: #1b1e62;">
           <i class="glyphicon glyphicon-th-large"></i>
         </div>
         <div class="panel-value pull-right">
@@ -52,7 +52,7 @@
 	<a href="product.php" style="color:black;">
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
-         <div class="panel-icon pull-left" style="background: #FE7F2D;">
+         <div class="panel-icon pull-left" style="background: #1b1e62;">
           <i class="glyphicon glyphicon-shopping-cart"></i>
         </div>
         <div class="panel-value pull-right">
@@ -66,7 +66,7 @@
 	<a href="sales.php" style="color:black;">
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
-         <div class="panel-icon pull-left" style="background: #FE7F2D;">
+         <div class="panel-icon pull-left" style="background: #1b1e62;">
           <i class="glyphicon glyphicon-usd"></i>
         </div>
         <div class="panel-value pull-right">
