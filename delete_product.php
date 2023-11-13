@@ -1,7 +1,7 @@
 <?php
   require_once('includes/load.php');
   
-  page_require_level(2);
+  page_require_level(1);
 ?>
 <?php
   $product = find_by_id('products',(int)$_GET['id']);

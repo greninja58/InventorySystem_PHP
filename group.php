@@ -28,7 +28,7 @@
             <th class="text-center" style="width: 50px;">#</th>
             <th>Group Name</th>
             <th class="text-center" style="width: 20%;">Group Level</th>
-            <th class="text-center" style="width: 15%;">Status</th>
+            
             <th class="text-center" style="width: 100px;">Actions</th>
           </tr>
         </thead>
@@ -40,13 +40,7 @@
            <td class="text-center">
              <?php echo remove_junk(ucwords($a_group['group_level']))?>
            </td>
-           <td class="text-center">
-           <?php if($a_group['group_status'] === '1'): ?>
-            <span class="label label-success"><?php echo "Active"; ?></span>
-          <?php else: ?>
-            <span class="label label-danger"><?php echo "Deactive"; ?></span>
-          <?php endif;?>
-           </td>
+           
            <td class="text-center">
              <div class="btn-group">
                 <a href="edit_group.php?id=<?php echo (int)$a_group['id'];?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">

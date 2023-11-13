@@ -23,8 +23,8 @@
            $name = remove_junk($db->escape($_POST['name']));
        $username = remove_junk($db->escape($_POST['username']));
           $level = (int)$db->escape($_POST['level']);
-       $status   = remove_junk($db->escape($_POST['status']));
-            $sql = "UPDATE users SET name ='{$name}', username ='{$username}',user_level='{$level}',status='{$status}' WHERE id='{$db->escape($id)}'";
+       
+            $sql = "UPDATE users SET name ='{$name}', username ='{$username}',user_level='{$level}' WHERE id='{$db->escape($id)}'";
          $result = $db->query($sql);
           if($result && $db->affected_rows() === 1){
             $session->msg('s',"Acount Updated ");
@@ -93,13 +93,7 @@ if(isset($_POST['update-pass'])) {
                 <?php endforeach;?>
                 </select>
             </div>
-            <div class="form-group">
-              <label for="status">Status</label>
-                <select class="form-control" name="status">
-                  <option <?php if($e_user['status'] === '1') echo 'selected="selected"';?>value="1">Active</option>
-                  <option <?php if($e_user['status'] === '0') echo 'selected="selected"';?> value="0">Deactive</option>
-                </select>
-            </div>
+            
             <div class="form-group clearfix">
                     <button type="submit" name="update" class="btn btn-info">Update</button>
             </div>

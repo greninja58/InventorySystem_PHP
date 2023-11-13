@@ -109,14 +109,14 @@ header > .logo {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-header > .logo:hover {
+/* header > .logo:hover {
     background: radial-gradient(circle, #058bf1, rgb(8, 4, 84));
-    /* text-shadow: 1px 1px 5px #000; */
+    text-shadow: 1px 1px 5px #000;
     text-decoration: solid;
     transform: scale(1.2);
     border: 2px solid black;
     border-radius: 5px;
-}
+} */
 
 
 .header-date {
