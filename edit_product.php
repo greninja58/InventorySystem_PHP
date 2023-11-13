@@ -61,7 +61,7 @@ if(!$product){
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Add New Product</span>
+            <span> Edit Product </span>
          </strong>
         </div>
         <div class="panel-body">
@@ -86,7 +86,7 @@ if(!$product){
                    <?php endforeach; ?>
                  </select>
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <select class="form-control" name="product-photo">
                       <option value=""> No image</option>
                       <?php  foreach ($all_photo as $photo): ?>
@@ -94,7 +94,7 @@ if(!$product){
                           <?php echo $photo['file_name'] ?></option>
                       <?php endforeach; ?>
                     </select>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
