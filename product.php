@@ -2,7 +2,7 @@
 $page_title = 'All Product';
 require_once('includes/load.php');
 
-page_require_level(2);
+page_require_level(3);
 $products = join_product_table();
 ?>
 <?php include_once('layouts/header.php'); ?>

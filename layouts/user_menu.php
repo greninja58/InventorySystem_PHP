@@ -17,9 +17,19 @@
        <span>Sales</span>
       </a>
       <ul class="nav submenu">
-         <li><a href="sales.php">Manage Sales</a> </li>
-         <li><a href="add_sale.php">Add Sale</a> </li>
+         <li><a href="sales.php">View Sales</a> </li>
+         
      </ul>
+  </li>
+  <li>
+    <a href="#" class="submenu-toggle">
+      <i class="glyphicon glyphicon-th-large"></i>
+      <span>Products</span>
+    </a>
+    <ul class="nav submenu">
+       <li><a href="product.php">View Products</a> </li>
+       
+   </ul>
   </li>
   <li>
     <a href="#" class="submenu-toggle">
