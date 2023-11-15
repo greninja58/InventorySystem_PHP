@@ -43,10 +43,7 @@ $products = sort_by_date_join_product_table();
               <tr>
                 <td class="text-center">
                   <?php echo count_id(); ?>
-                </td>
-                <!-- <td>
-                 
-                </td> -->
+                
                 <td>
                   <?php echo remove_junk($product['name']); ?>
                 </td>
