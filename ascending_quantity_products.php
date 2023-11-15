@@ -16,6 +16,7 @@ $products = sort_by_quantity_join_product_table();
         <div class="pull-right">
         <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity</a>
           <a href="recent_products.php" class="btn btn-primary">Sort by date</a>
+          <a href="alphabetically_products.php" class = "btn btn-primary">Sort alphabetically</a>
           <a href="add_product.php" class="btn btn-primary">Add New</a>
           
           <a href="print_product.php" class="btn btn-primary text-red-500" ">Save PDF</a>

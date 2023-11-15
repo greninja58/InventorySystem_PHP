@@ -3,7 +3,7 @@ $page_title = 'All Product';
 require_once('includes/load.php');
 
 page_require_level(3);
-$products = join_product_table();
+$products = sort_alphabetically_join_product_table();
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">
@@ -14,7 +14,7 @@ $products = join_product_table();
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
         <div class="pull-right">
-          <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity</a>
+        <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity</a>
           <a href="recent_products.php" class="btn btn-primary">Sort by date</a>
           <a href="alphabetically_products.php" class = "btn btn-primary">Sort alphabetically</a>
           <a href="add_product.php" class="btn btn-primary">Add New</a>

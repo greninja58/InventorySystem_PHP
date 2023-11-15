@@ -185,6 +185,7 @@
 </div>
 
  </div>
+ <h4>Highest selling products plot - Title vs Quantity</h4>
  <canvas id="myChart1" style="max-width: 900px; display: block; margin: auto; height: 450px; width: 900px;"></canvas>
  
 <script>

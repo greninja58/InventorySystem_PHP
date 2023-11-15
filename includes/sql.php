@@ -251,6 +251,21 @@ function tableExists($table){
    return find_by_sql($sql);
 
   }
+  function sort_alphabetically_join_product_table(){
+    global $db;
+   //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+
+   // $sql  .=" AS categorie,m.file_name AS image";
+   $sql  .=" AS categorie";
+
+   $sql  .=" FROM products p";
+   $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" ORDER BY p.name ASC";
+   return find_by_sql($sql);
+
+  }
   /*--------------------------------------------------------------*/
   /* Function for Finding all product name
   /* Request coming from ajax.php for auto suggest
