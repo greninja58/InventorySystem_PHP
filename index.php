@@ -7,19 +7,7 @@ if($session->isUserLoggedIn(true)) {
 ?>
 <?php include_once('layouts/header.php'); ?>
 
-<style>
-  body {
-    
-    background-image: url("libs/images/img68.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .login-page {
-    background: rgba(255, 255, 255, 0.8); 
-    padding: 20px;
-  }
-</style>
+
 
 <div class="login-page">
   <div class="text-center">
