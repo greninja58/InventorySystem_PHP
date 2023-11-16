@@ -3,6 +3,7 @@
   require_once('includes/load.php');
  
    page_require_level(3);
+   $products = join_product_table();
 ?>
 <?php
 
@@ -12,7 +13,8 @@
         if(empty($errors)){
           $p_id      = $db->escape((int)$_POST['s_id']);
           $s_qty     = $db->escape((int)$_POST['quantity']);
-          $s_total   = $db->escape($_POST['total']);
+          $temp1 = floatval($_POST['price']) * (int)($_POST['quantity']);
+          $s_total   = $db->escape(strval($temp1));
           $date      = $db->escape($_POST['date']);
           $s_date    = make_date();
 
@@ -48,7 +50,7 @@
 <div class="row">
   <div class="col-md-6">
     <?php echo display_msg($msg); ?>
-    <form method="post" action="ajax.php" autocomplete="off" id="sug-form">
+    <!-- <form method="post" action="ajax.php" autocomplete="off" id="sug-form">
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
@@ -58,7 +60,7 @@
          </div>
          <div id="result" class="list-group"></div>
         </div>
-    </form>
+    </form> -->
   </div>
 </div>
 <div class="row">
@@ -72,20 +74,66 @@
        </strong>
       </div>
       <div class="panel-body">
-        <form method="post" action="add_sale.php">
-         <table class="table table-bordered">
-           <thead>
-            <th> Item </th>
-            <th> Price </th>
-            <th> Qty </th>
-            <th> InStock Qty </th>
-            <th> Total </th>
-            <th> Date</th>
-            <th> Action</th>
-           </thead>
-             <tbody  id="product_info"> </tbody>
-         </table>
-       </form>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 5%;">P_ID</th>
+              <!-- <th> Photo</th> -->
+              <th class="text-center" style="width: 10%;"> Name of Product </th>
+              <th class="text-center" style="width: 10%;"> Current stock quantity</th>
+              <!-- <th class="text-center" style="width: 10%;"> Price per qt. </th> -->
+              <th class="text-center" style="width: 10%;"> Date of sale </th>
+              <th class="text-center" style="width: 10%;">Enter Sale quantity </th>
+              
+              <th class="text-center" style="width: 10%;"> Sale </th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($products as $product): ?>
+              <form method="post" action="add_sale.php">
+              <tr>
+
+                <td class="text-center">
+                <input type="number" name="s_id" value="<?php echo $product['id']; ?>" readonly>
+                  
+                </td>
+                <!-- <td>
+                 
+                </td> -->
+                <td class="text-center">
+                  <?php echo remove_junk($product['name']); ?>
+                </td>
+                <td class="text-center">
+                  <?php echo remove_junk($product['quantity']); ?>
+                </td>
+                
+                <!-- <td class="text-center">
+                  <?php echo remove_junk($product['sale_price']); ?>
+                </td> -->
+                <input type="hidden" class="form-control" name="price" value="<?php echo remove_junk($product['sale_price']); ?>">
+                <input type="hidden" class="form-control" name="total" value="<?php echo remove_junk(0); ?>">
+                <td class="text-center">
+                <input type="date" class="form-control datePicker" name="date" data-date data-date-format="yyyy-mm-dd">
+                </td>
+                <td class="text-center">
+                <input type="text" class="form-control" name="quantity" placeholder="Sale quantity">
+                </td>
+                
+                <td class="text-center">
+                  <div class="btn-group">
+                  
+                  <button type="submit" name="add_sale" class="btn btn-info">Sale Item</button>
+
+                  
+                    
+                  </div>
+                </td>
+              </tr>
+              </form>
+            <?php endforeach; ?>
+          </tbody>
+          </tabel>
       </div>
     </div>
   </div>

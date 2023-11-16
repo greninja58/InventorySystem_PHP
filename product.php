@@ -35,7 +35,7 @@ $products = join_product_table();
               <th class="text-center" style="width: 10%;"> Supplier name</th>
               <th class="text-center" style="width: 10%;"> Product Category </th>
               <th class="text-center" style="width: 10%;"> Current quantity </th>
-              <th class="text-center" style="width: 10%;"> Supplier buying cost </th>
+              <th class="text-center" style="width: 10%;"> Supplier cost </th>
               <th class="text-center" style="width: 10%;"> Retail Cost </th>
               <th class="text-center" style="width: 10%;"> Date </th>
               <th class="text-center" style="width: 10%;"> Edit/Delete </th>

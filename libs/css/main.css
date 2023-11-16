@@ -435,3 +435,8 @@ input[type=file]{
 .btn-primary:hover{
   background-color: #6d4c97;
 }
+.btn-info {
+  color: #fff;
+  background-color: #7d15e4;
+  border-color: #46b8da;
+}

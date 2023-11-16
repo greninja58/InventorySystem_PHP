@@ -3,7 +3,7 @@
   require_once('includes/load.php');
   
   page_require_level(1);
-  $groups = find_all('user_groups');
+  $groups = find_all('privileges');
 ?>
 <?php
   if(isset($_POST['add_user'])){
@@ -66,7 +66,7 @@
               <label for="level">User Role</label>
                 <select class="form-control" name="level">
                   <?php foreach ($groups as $group ):?>
-                   <option value="<?php echo $group['group_level'];?>"><?php echo ucwords($group['group_name']);?></option>
+                   <option value="<?php echo $group['privilege_level'];?>"><?php echo ucwords($group['privilege_name']);?></option>
                 <?php endforeach;?>
                 </select>
             </div>

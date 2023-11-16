@@ -111,49 +111,12 @@
      </div>
    </div>
 
-   <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong>
-            <!-- <span class="glyphicon glyphicon-th"></span> -->
-            <span>LATEST SALES</span>
-          </strong>
-        </div>
-        <div class="panel-body">
-          <table id="latest_sales" class="table table-striped">
-       <thead>
-         <tr>
-           <!-- <th class="text-center" style="width: 50px;">#</th> -->
-           <th>Product Name</th>
-           <th>Date</th>
-           <th>Total Sale</th>
-         </tr>
-       </thead>
-       <tbody>
-         <?php foreach ($recent_sales as  $recent_sale): ?>
-         <tr>
-           <!-- <td class="text-center"><?php echo count_id();?></td> -->
-           <td id = "name_latest">
-            <a href="edit_sale.php?id=<?php echo (int)$recent_sale['id']; ?>">
-             <?php echo remove_junk(first_character($recent_sale['name'])); ?>
-           </a>
-           </td>
-           <td><?php echo remove_junk(ucfirst($recent_sale['date'])); ?></td>
-           <td id = "sale_latest"><icon class="fa fa-inr"></icon><?php echo remove_junk(first_character($recent_sale['price'])); ?></td>
-        </tr>
-
-       <?php endforeach; ?>
-       </tbody>
-     </table>
-    </div>
-   </div>
-  </div>
-  <div class="col-md-4">
+   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
           <!-- <span class="glyphicon glyphicon-th"></span> -->
-          <span>Recently Added Products</span>
+          <span>Recently Added Items to inventory</span>
         </strong>
       </div>
       <div class="panel-body">
@@ -185,6 +148,45 @@
  </div>
  
 </div>
+
+   <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>
+            <!-- <span class="glyphicon glyphicon-th"></span> -->
+            <span>RECENT SALES</span>
+          </strong>
+        </div>
+        <div class="panel-body">
+          <table id="latest_sales" class="table table-striped">
+       <thead>
+         <tr>
+           <!-- <th class="text-center" style="width: 50px;">#</th> -->
+           <th>Item</th>
+           <th>Date</th>
+           <th>Amount</th>
+         </tr>
+       </thead>
+       <tbody>
+         <?php foreach ($recent_sales as  $recent_sale): ?>
+         <tr>
+           <!-- <td class="text-center"><?php echo count_id();?></td> -->
+           <td id = "name_latest">
+            <a href="edit_sale.php?id=<?php echo (int)$recent_sale['id']; ?>">
+             <?php echo remove_junk(first_character($recent_sale['name'])); ?>
+           </a>
+           </td>
+           <td><?php echo remove_junk(ucfirst($recent_sale['date'])); ?></td>
+           <td id = "sale_latest"><icon class="fa fa-inr"></icon><?php echo remove_junk(first_character($recent_sale['price'])); ?></td>
+        </tr>
+
+       <?php endforeach; ?>
+       </tbody>
+     </table>
+    </div>
+   </div>
+  </div>
+  
 
  </div>
  

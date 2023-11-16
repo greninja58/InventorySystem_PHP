@@ -267,7 +267,9 @@ function tableExists($table){
    $sql  .=" FROM products p";
    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
    $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
+   $sql  .=" WHERE p.quantity <=20";
    $sql  .=" ORDER BY p.quantity ASC";
+   
    
    return find_by_sql($sql);
 
