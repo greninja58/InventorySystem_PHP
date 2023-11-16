@@ -79,11 +79,11 @@
 </div>
   
   <div class="row">
-   <div class="col-md-4">
+   <div class="col-md-4" style="display: none;">
      <div class="panel panel-default">
        <div class="panel-heading">
          <strong>
-           <span class="glyphicon glyphicon-th"></span>
+           <!-- <span class="glyphicon glyphicon-th"></span> -->
            <span>Highest Selling Products</span>
          </strong>
        </div>
@@ -109,19 +109,20 @@
        </div>
      </div>
    </div>
+
    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong>
-            <span class="glyphicon glyphicon-th"></span>
+            <!-- <span class="glyphicon glyphicon-th"></span> -->
             <span>LATEST SALES</span>
           </strong>
         </div>
         <div class="panel-body">
-          <table id="latest_sales" class="table table-striped table-bordered table-condensed">
+          <table id="latest_sales" class="table table-striped">
        <thead>
          <tr>
-           <th class="text-center" style="width: 50px;">#</th>
+           <!-- <th class="text-center" style="width: 50px;">#</th> -->
            <th>Product Name</th>
            <th>Date</th>
            <th>Total Sale</th>
@@ -130,7 +131,7 @@
        <tbody>
          <?php foreach ($recent_sales as  $recent_sale): ?>
          <tr>
-           <td class="text-center"><?php echo count_id();?></td>
+           <!-- <td class="text-center"><?php echo count_id();?></td> -->
            <td id = "name_latest">
             <a href="edit_sale.php?id=<?php echo (int)$recent_sale['id']; ?>">
              <?php echo remove_junk(first_character($recent_sale['name'])); ?>
@@ -150,7 +151,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
-          <span class="glyphicon glyphicon-th"></span>
+          <!-- <span class="glyphicon glyphicon-th"></span> -->
           <span>Recently Added Products</span>
         </strong>
       </div>
