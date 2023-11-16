@@ -12,7 +12,7 @@
    validate_fields($req_field);
    $sup_name = remove_junk($db->escape($_POST['supplier-name']));
    if(empty($errors)){
-      $sql  = "INSERT INTO supplier (name)";
+      $sql  = "INSERT INTO suppliers (name)";
       $sql .= " VALUES ('{$sup_name}')";
       if($db->query($sql)){
         $session->msg("s", "Successfully Added New Supplier");

@@ -274,10 +274,10 @@ header > .logo {
   padding: 15px 0;
 }
 table td h6{
-  margin: 0 0 0.2em 0;
+  margin: 2px;
 }
 table tfoot tr td:first-child{
-  border: 0;
+  border: 10px;
 }table tfoot tr td:last-child{
   border-top: 1px solid #ccc;
 }table td h6,table tfoot tr td:last-child{
@@ -285,6 +285,7 @@ table tfoot tr td:first-child{
   _font-size: 1.2em;
   font-weight: normal;
 }
+
 .form-control{
   color: #646464;
   border: 1px solid #e6e6e6;
@@ -356,4 +357,74 @@ input[type=file]{
 }img.img-size-2{
   width: 125px;
   height: 125px;
+}
+
+.panel-default
+{
+    border: 4px double rgb(0, 0, 105);
+    border-radius: 20px;
+    margin: 20px;
+    background-color: #addeff;
+    box-shadow: 5px 5px 5px rgb(88, 88, 255);
+    padding: 20px 20px 5px 20px;
+    color: grey;
+}   
+.panel-default:hover
+{
+    background-color: #85ceff;
+    box-shadow: 5px 5px 5px blue;
+    color: black;
+}
+.panel-heading
+{
+    text-align: center;
+    border: 5px ridge black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.glyphicon-th
+{
+    background-image: none;
+}
+
+.panel-body
+{
+    background-color: rgb(210, 210, 210);
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.table-striped
+{
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+.table-striped tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-striped tbody tr:last-of-type {
+    border-bottom: 2px solid #003098;
+}
+
+.table-striped thead tr {
+    background-color: rgb(34, 34, 255);
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-striped th,
+.table-striped td {
+    padding: 12px 15px;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #bfe2ff;    
 }

@@ -17,16 +17,22 @@
         * {
             font-family: monospace;
         }
+        
+        .pn
+        {
+            border: 2px solid red;
+        }
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
   <body>
   <?php  if ($session->isUserLoggedIn(true)): ?>
     <header id="header">
-      <div class="logo pull-left">Stock Management</div>
+      <div class="logo pull-left"> Stock Management </div>
       <div class="header-content">
       <div class="header-date pull-left">
-        <strong>Welcome to inventory management!</strong>
+        <strong>Welcome to Inventory System!</strong>
       </div>
       <div class="pull-right clearfix">
         <!-- <ul class="info-menu list-inline list-unstyled">
