@@ -34,7 +34,21 @@
       <div class="header-date pull-left">
         <strong>Welcome to Inventory System!</strong>
       </div>
-      <div class="pull-right clearfix">
+      
+      
+      
+      
+                     
+                     
+                 
+        
+      </div>
+      <a href="logout.php">
+      <div class="pull-right" style="margin-right:20px;">
+      
+      <strong style = "color:black;">Logout</strong>
+      </div>
+      </a>
         <!-- <ul class="info-menu list-inline list-unstyled">
           <li class="profile">
             <a href="#" data-toggle="dropdown" class="toggle" aria-expanded="false">

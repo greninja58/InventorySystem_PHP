@@ -242,13 +242,14 @@ function tableExists($table){
    function sort_by_quantity_join_product_table(){
     global $db;
    //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+   $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
 
    // $sql  .=" AS categorie,m.file_name AS image";
-   $sql  .=" AS categorie";
-
+   $sql  .=" AS categorie, s.name";
+   $sql .= " AS supplier"; 
    $sql  .=" FROM products p";
    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+   $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
    // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
    $sql  .=" ORDER BY p.quantity ASC";
    
@@ -258,15 +259,14 @@ function tableExists($table){
   function get_low_stock_join_product_table(){
     global $db;
    //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+   $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
 
    // $sql  .=" AS categorie,m.file_name AS image";
-   $sql  .=" AS categorie";
-
+   $sql  .=" AS categorie, s.name";
+   $sql .= " AS supplier"; 
    $sql  .=" FROM products p";
    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
-   $sql  .=" WHERE p.quantity <= 10";
-   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
    $sql  .=" ORDER BY p.quantity ASC";
    
    return find_by_sql($sql);
@@ -275,14 +275,14 @@ function tableExists($table){
   function sort_by_quantity_desc_join_product_table(){
     global $db;
    //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+   $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
 
    // $sql  .=" AS categorie,m.file_name AS image";
-   $sql  .=" AS categorie";
-
+   $sql  .=" AS categorie, s.name";
+   $sql .= " AS supplier"; 
    $sql  .=" FROM products p";
    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
-   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
    $sql  .=" ORDER BY p.quantity DESC";
    return find_by_sql($sql);
 
@@ -290,29 +290,28 @@ function tableExists($table){
   function sort_by_date_join_product_table(){
     global $db;
    //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+   $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
 
    // $sql  .=" AS categorie,m.file_name AS image";
-   $sql  .=" AS categorie";
-
+   $sql  .=" AS categorie, s.name";
+   $sql .= " AS supplier"; 
    $sql  .=" FROM products p";
    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
-   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
    $sql  .=" ORDER BY p.date DESC";
    return find_by_sql($sql);
 
   }
   function sort_alphabetically_join_product_table(){
     global $db;
-   //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
     $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
 
-   // $sql  .=" AS categorie,m.file_name AS image";
-   $sql  .=" AS categorie";
-
-   $sql  .=" FROM products p";
-   $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
-   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+    // $sql  .=" AS categorie,m.file_name AS image";
+    $sql  .=" AS categorie, s.name";
+    $sql .= " AS supplier"; 
+    $sql  .=" FROM products p";
+    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+    $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
    $sql  .=" ORDER BY p.name ASC";
    return find_by_sql($sql);
 

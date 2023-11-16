@@ -32,6 +32,7 @@ $products = get_low_stock_join_product_table();
               <th class="text-center" style="width: 10%;">P_ID</th>
               <!-- <th> Photo</th> -->
               <th class="text-center" style="width: 10%;"> Name of Product </th>
+              <th class="text-center" style="width: 10%;"> Supplier name</th>
               <th class="text-center" style="width: 10%;"> Product Category </th>
               <th class="text-center" style="width: 10%;"> Current quantity </th>
               <th class="text-center" style="width: 10%;"> Supplier buying cost </th>
@@ -53,6 +54,9 @@ $products = get_low_stock_join_product_table();
                   <?php echo remove_junk($product['name']); ?>
                 </td>
                 <td class="text-center">
+                  <?php echo remove_junk($product['supplier']); ?>
+                </td>
+                <td class="text-center">
                   <?php echo remove_junk($product['categorie']); ?>
                 </td>
                 <td class="text-center">
@@ -71,11 +75,11 @@ $products = get_low_stock_join_product_table();
                   <div class="btn-group">
                     <a href="edit_product.php?id=<?php echo (int) $product['id']; ?>" class="btn btn-info btn-xs"
                       title="Edit" data-toggle="tooltip">
-                      <span class="glyphicon glyphicon-edit"></span>
+                      <strong>Edit</strong>
                     </a>
                     <a href="delete_product.php?id=<?php echo (int) $product['id']; ?>" class="btn btn-danger btn-xs"
                       title="Delete" data-toggle="tooltip">
-                      <span class="glyphicon glyphicon-trash"></span>
+                      <strong>Delete</strong>
                     </a>
                   </div>
                 </td>

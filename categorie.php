@@ -67,7 +67,7 @@
                 <tr>
                     <th class="text-center" style="width: 50px;">#</th>
                     <th>Categories</th>
-                    <th class="text-center" style="width: 100px;">Actions</th>
+                    <th class="text-center" style="width: 100px;">Edit/Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,10 +78,10 @@
                     <td class="text-center">
                       <div class="btn-group">
                         <a href="edit_categorie.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
-                          <span class="glyphicon glyphicon-edit"></span>
+                          <strong>Edit</strong>
                         </a>
                         <a href="delete_categorie.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
-                          <span class="glyphicon glyphicon-trash"></span>
+                        <strong>Delete</strong>
                         </a>
                       </div>
                     </td>

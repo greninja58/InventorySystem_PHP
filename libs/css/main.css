@@ -32,6 +32,7 @@ a
   top: 100px;
   left: 0;
   padding: 35px 15px 20px 30px;
+  background: #1d2831;
 }
 
 .page-lgn{
@@ -181,7 +182,7 @@ header > .logo {
   width: 100%;
   display: flex;
   justify-content: center;
-  background: #4c5d6c;
+  background: #050143;
   border: 1px solid black;
   text-align: center;
   }
@@ -427,4 +428,10 @@ input[type=file]{
 
 .table-striped tbody tr:hover {
     background-color: #bfe2ff;    
+}
+.btn-primary,  .btn-primary:active, .btn-primary:visited {
+  background-color: #6725b7;
+}
+.btn-primary:hover{
+  background-color: #6d4c97;
 }

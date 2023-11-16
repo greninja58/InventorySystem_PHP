@@ -77,7 +77,7 @@
     </div>
 	</a> -->
 </div>
-<center><h4>Top Sold Items - Title vs Quantity</h4></center>
+<center><h4 style="color: white;">Top Sold Items - Title vs Quantity</h4></center>
 <canvas id="myChart1" style="max-width: 900px; display: block; margin: auto; height: 450px; width: 900px;"></canvas>
   <div class="row">
    <div class="col-md-4" style="display: none;">
@@ -224,18 +224,36 @@ new Chart("myChart1", {
     datasets: [{
       fill: false,
       lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
+      backgroundColor: "rgba(255, 255, 0, 1.0)", // Yellow color
+      borderColor: "rgba(255, 255, 0, 0.1)", // Slightly transparent yellow color
       data: yValuesHighest
     }]
   },
   options: {
-    legend: {display: false},
+    legend: { display: false },
     scales: {
-      yAxes: [{ticks: {min: 0, max:maxHighest}}],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: maxHighest,
+          fontColor: 'white' // White text color on the y-axis
+        },
+        gridLines: {
+          color: 'rgba(255, 255, 255, 0.1)' // White gridlines
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: 'white' // White text color on the x-axis
+        },
+        gridLines: {
+          color: 'rgba(255, 255, 255, 0.1)' // White gridlines
+        }
+      }]
     }
   }
 });
+
 
 // for (var i = 0, row; row = table2.rows[i]; i++) {
 

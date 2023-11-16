@@ -35,7 +35,7 @@ $sales = find_all_sale();
                 <th class="text-center" style="width: 15%;"> Quantity</th>
                 <th class="text-center" style="width: 15%;"> Total </th>
                 <th class="text-center" style="width: 15%;"> Date </th>
-                <th class="text-center" style="width: 100px;"> Actions </th>
+                <th class="text-center" style="width: 100px;"> Edit/Delete </th>
              </tr>
             </thead>
            <tbody>
@@ -49,10 +49,10 @@ $sales = find_all_sale();
                <td class="text-center">
                   <div class="btn-group">
                      <a href="edit_sale.php?id=<?php echo (int)$sale['id'];?>" class="btn btn-warning btn-xs"  title="Edit" data-toggle="tooltip">
-                       <span class="glyphicon glyphicon-edit"></span>
+                     <strong>Edit</strong>
                      </a>
                      <a href="delete_sale.php?id=<?php echo (int)$sale['id'];?>" class="btn btn-danger btn-xs"  title="Delete" data-toggle="tooltip">
-                       <span class="glyphicon glyphicon-trash"></span>
+                     <strong>Delete</strong>
                      </a>
                   </div>
                </td>

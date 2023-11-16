@@ -59,10 +59,10 @@
                     <td class="text-center">
                       <div class="btn-group">
                         <a href="edit_supplier.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
-                          <span class="glyphicon glyphicon-edit"></span>
+                        <strong>Edit</strong>
                         </a>
                         <a href="delete_supplier.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
-                          <span class="glyphicon glyphicon-trash"></span>
+                        <strong>Delete</strong>
                         </a>
                       </div>
                     </td>
