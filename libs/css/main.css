@@ -176,12 +176,12 @@ header > .logo {
   left: 0;
   top: 0;
   /* font-size: xx-large; */
-  padding: 65px 0 0;
+  padding: 75px 0 10px 0;
   /* height: 100%; */
   width: 100%;
   display: flex;
   justify-content: center;
-  background: linear-gradient(to bottom, white, #0285f0);
+  background: #4c5d6c;
   border: 1px solid black;
   text-align: center;
   }

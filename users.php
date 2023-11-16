@@ -19,8 +19,8 @@
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
         <strong>
-          <span class="glyphicon glyphicon-th"></span>
-          <span>Users</span>
+        
+          <span>Users Data</span>
        </strong>
          <a href="add_user.php" class="btn btn-info pull-right">Add New User</a>
       </div>
@@ -31,8 +31,7 @@
             <th class="text-center" style="width: 50px;">#</th>
             <th>Name </th>
             <th>Username</th>
-            <th class="text-center" style="width: 15%;">User Role</th>
-            <th style="width: 20%;">Last Login</th>
+            <th class="text-center" style="width: 15%;">Role</th>
             <th class="text-center" style="width: 100px;">Actions</th>
           </tr>
         </thead>
@@ -42,9 +41,9 @@
            <td class="text-center"><?php echo count_id();?></td>
            <td><?php echo remove_junk(ucwords($a_user['name']))?></td>
            <td><?php echo remove_junk(ucwords($a_user['username']))?></td>
-           <td class="text-center"><?php echo remove_junk(ucwords($a_user['group_name']))?></td>
+           <td class="text-center"><?php echo remove_junk(ucwords($a_user['privilege_name']))?></td>
            
-           <td><?php echo read_date($a_user['last_login'])?></td>
+          
            <td class="text-center">
              <div class="btn-group">
                 <a href="edit_user.php?id=<?php echo (int)$a_user['id'];?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">

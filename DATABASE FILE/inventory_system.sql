@@ -36,51 +36,53 @@ CREATE TABLE IF NOT EXISTS `products` (
   `buy_price` decimal(25,2) DEFAULT NULL,
   `sale_price` decimal(25,2) NOT NULL,
   `categorie_id` int(11) unsigned NOT NULL,
+  `supplier_id` int(11) unsigned NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `products`
 --
-INSERT INTO `products` (`id`, `name`, `quantity`, `buy_price`, `sale_price`, `categorie_id`, `date`) VALUES
-(1, 'Sugar - 5 lb bag', 50, 2.99, 4.99, 1, '2023-11-08 08:30:00'),
-(2, 'Flour - All-Purpose', 40, 1.99, 3.99, 1, '2023-11-10 09:15:00'),
-(3, 'Rice - Long Grain', 60, 3.50, 6.99, 1, '2023-11-12 10:00:00'),
-(4, 'Pasta - Spaghetti', 80, 1.00, 2.49, 1, '2023-11-14 11:45:00'),
-(5, 'Canned Tomatoes', 70, 0.99, 1.99, 1, '2023-11-15 13:30:00'),
-(6, 'Cooking Oil - Vegetable', 30, 4.99, 7.99, 1, '2023-11-08 08:30:00'),
-(7, 'Coffee - Ground', 50, 6.99, 12.99, 1, '2023-11-10 09:15:00'),
-(8, 'Apples - Gala (per lb)', 100, 1.49, 2.49, 2, '2023-11-12 10:00:00'),
-(9, 'Bananas (per lb)', 80, 0.69, 1.29, 2, '2023-11-14 11:45:00'),
-(10, 'Carrots (per lb)', 60, 0.79, 1.49, 2, '2023-11-15 13:30:00'),
-(11, 'Spinach - Fresh Bunch', 40, 1.99, 3.99, 2, '2023-11-08 08:30:00'),
-(12, 'Tomatoes - Vine-Ripened (per lb)', 70, 2.49, 3.99, 2, '2023-11-10 09:15:00'),
-(13, 'Broccoli - Fresh Bundle', 50, 1.79, 2.99, 2, '2023-11-12 10:00:00'),
-(14, 'Milk - Whole Gallon', 30, 2.99, 4.49, 3, '2023-11-14 11:45:00'),
-(15, 'Eggs - Large (dozen)', 50, 1.99, 3.29, 3, '2023-11-15 13:30:00'),
-(16, 'Butter - Unsalted (1 lb)', 20, 3.49, 5.99, 3, '2023-11-08 08:30:00'),
-(17, 'Cheddar Cheese - Block (8 oz)', 40, 2.79, 4.99, 3, '2023-11-10 09:15:00'),
-(18, 'Greek Yogurt - Plain (32 oz)', 25, 3.99, 6.49, 3, '2023-11-12 10:00:00'),
-(19, 'Cream Cheese (8 oz)', 30, 1.89, 3.29, 3, '2023-11-14 11:45:00'),
-(20, 'Frozen Pizza - Margherita', 15, 4.99, 8.99, 4, '2023-11-15 13:30:00'),
-(21, 'Chicken Nuggets (2 lbs)', 25, 6.49, 10.99, 4, '2023-11-08 08:30:00'),
-(22, 'Frozen Vegetables Mix (16 oz)', 35, 2.79, 4.49, 4, '2023-11-10 09:15:00'),
-(23, 'Ice Cream - Vanilla (1.5 qt)', 20, 3.99, 6.99, 4, '2023-11-12 10:00:00'),
-(24, 'French Baguette', 50, 1.99, 3.49, 5, '2023-11-14 11:45:00'),
-(25, 'Chocolate Chip Cookies (Dozen)', 40, 4.49, 7.99, 5, '2023-11-15 13:30:00'),
-(26, 'Cinnamon Rolls (6-pack)', 30, 5.99, 10.99, 5, '2023-11-08 08:30:00'),
-(27, 'Croissants (4-pack)', 25, 6.79, 12.99, 5, '2023-11-10 09:15:00'),
-(28, 'Cheese Danish (8-pack)', 20, 7.49, 13.99, 5, '2023-11-12 10:00:00'),
-(29, 'Paper Towels (12 rolls)', 50, 14.99, 24.99, 6, '2023-11-14 11:45:00'),
-(30, 'Toilet Paper (24 rolls)', 40, 18.99, 29.99, 6, '2023-11-15 13:30:00'),
-(31, 'Laundry Detergent (1 gallon)', 30, 9.99, 15.99, 6, '2023-11-08 08:30:00'),
-(32, 'Dish Soap (3-pack)', 25, 5.49, 9.99, 6, '2023-11-10 09:15:00'),
-(33, 'Trash Bags - Large (50 count)', 20, 12.99, 19.99, 6, '2023-11-12 10:00:00'),
-(34, 'Shampoo (16 oz)', 50, 6.99, 11.99, 7, '2023-11-14 11:45:00'),
-(35, 'Conditioner (16 oz)', 40, 7.49, 12.99, 7, '2023-11-15 13:30:00'),
-(36, 'Toothpaste (Pack of 3)', 30, 8.99, 14.99, 7, '2023-11-08 08:30:00'),
-(37, 'Body Wash (20 oz)', 25, 5.99, 10.99, 7, '2023-11-10 09:15:00'),
-(38, 'Hand Sanitizer (8 oz)', 20, 3.99, 7.99, 7, '2023-11-12 10:00:00');
+INSERT INTO `products` (`id`, `name`, `quantity`, `buy_price`, `sale_price`, `categorie_id`, `supplier_id`, `date`) VALUES
+(1, 'Sugar - 5 lb bag', 50, 2.99, 4.99, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(2, 'Flour - All-Purpose', 40, 1.99, 3.99, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(3, 'Rice - Long Grain', 60, 3.50, 6.99, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(4, 'Pasta - Spaghetti', 80, 1.00, 2.49, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(5, 'Canned Tomatoes', 70, 0.99, 1.99, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(6, 'Cooking Oil - Vegetable', 30, 4.99, 7.99, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(7, 'Coffee - Ground', 50, 6.99, 12.99, 1, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(8, 'Apples - Gala (per lb)', 100, 1.49, 2.49, 2, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(9, 'Bananas (per lb)', 80, 0.69, 1.29, 2, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(10, 'Carrots (per lb)', 60, 0.79, 1.49, 2, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(11, 'Spinach - Fresh Bunch', 40, 1.99, 3.99, 2, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(12, 'Tomatoes - Vine-Ripened (per lb)', 70, 2.49, 3.99, 2, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(13, 'Broccoli - Fresh Bundle', 50, 1.79, 2.99, 2, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(14, 'Milk - Whole Gallon', 30, 2.99, 4.49, 3, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(15, 'Eggs - Large (dozen)', 50, 1.99, 3.29, 3, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(16, 'Butter - Unsalted (1 lb)', 20, 3.49, 5.99, 3, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(17, 'Cheddar Cheese - Block (8 oz)', 40, 2.79, 4.99, 3, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(18, 'Greek Yogurt - Plain (32 oz)', 25, 3.99, 6.49, 3, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(19, 'Cream Cheese (8 oz)', 30, 1.89, 3.29, 3, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(20, 'Frozen Pizza - Margherita', 15, 4.99, 8.99, 4, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(21, 'Chicken Nuggets (2 lbs)', 25, 6.49, 10.99, 4, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(22, 'Frozen Vegetables Mix (16 oz)', 35, 2.79, 4.49, 4, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(23, 'Ice Cream - Vanilla (1.5 qt)', 20, 3.99, 6.99, 4, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(24, 'French Baguette', 50, 1.99, 3.49, 5, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(25, 'Chocolate Chip Cookies (Dozen)', 40, 4.49, 7.99, 5, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(26, 'Cinnamon Rolls (6-pack)', 30, 5.99, 10.99, 5, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(27, 'Croissants (4-pack)', 25, 6.79, 12.99, 5, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(28, 'Cheese Danish (8-pack)', 20, 7.49, 13.99, 5, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(29, 'Paper Towels (12 rolls)', 50, 14.99, 24.99, 6, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(30, 'Toilet Paper (24 rolls)', 40, 18.99, 29.99, 6, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(31, 'Laundry Detergent (1 gallon)', 30, 9.99, 15.99, 6, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(32, 'Dish Soap (3-pack)', 25, 5.49, 9.99, 6, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(33, 'Trash Bags - Large (50 count)', 20, 12.99, 19.99, 6, FLOOR(1 + RAND() * 3), DATE('2023-11-12')),
+(34, 'Shampoo (16 oz)', 50, 6.99, 11.99, 7, FLOOR(1 + RAND() * 3), DATE('2023-11-14')),
+(35, 'Conditioner (16 oz)', 40, 7.49, 12.99, 7, FLOOR(1 + RAND() * 3), DATE('2023-11-15')),
+(36, 'Toothpaste (Pack of 3)', 30, 8.99, 14.99, 7, FLOOR(1 + RAND() * 3), DATE('2023-11-08')),
+(37, 'Body Wash (20 oz)', 25, 5.99, 10.99, 7, FLOOR(1 + RAND() * 3), DATE('2023-11-10')),
+(38, 'Hand Sanitizer (8 oz)', 20, 3.99, 7.99, 7, FLOOR(1 + RAND() * 3), DATE('2023-11-12'));
+
 
 
 
@@ -143,25 +145,34 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `user_level`, `image`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_groups`
---
 
-CREATE TABLE IF NOT EXISTS `user_groups` (
+--
+-- Table structure for table `privileges`
+CREATE TABLE IF NOT EXISTS `privileges` (
   `id` int(11) NOT NULL,
-  `group_name` varchar(150) NOT NULL,
-  `group_level` int(11) NOT NULL
+  `privilege_name` varchar(150) NOT NULL,
+  `privilege_level` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_groups`
+-- Dumping data for table `privileges`
 --
 
-INSERT INTO `user_groups` (`id`, `group_name`, `group_level`) VALUES
+INSERT INTO `privileges` (`id`, `privilege_name`, `privilege_level`) VALUES
 (1, 'Admin', 1),
 (2, 'employee', 2),
 (3, 'supplier', 3);
 
---
+
+CREATE TABLE IF NOT EXISTS `suppliers` (
+`id` int(11) unsigned NOT NULL,
+`name` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+INSERT INTO `suppliers` (`id`, `name`) VALUES
+(1, 'Dabur Manufacturing'),
+(2, 'Patanjali pvt ltd'),
+(3, 'Amul pvt ltd' );
 -- Indexes for dumped tables
 --
 
@@ -181,7 +192,7 @@ ALTER TABLE `categories`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD KEY `categorie_id` (`categorie_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD KEY `categorie_id` (`categorie_id`), ADD KEY `supplier_id` (`supplier_id`);
 
 --
 -- Indexes for table `sales`
@@ -196,10 +207,16 @@ ALTER TABLE `users`
  ADD PRIMARY KEY (`id`), ADD KEY `user_level` (`user_level`);
 
 --
--- Indexes for table `user_groups`
+-- Indexes for table `privileges`
 --
-ALTER TABLE `user_groups`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `group_level` (`group_level`);
+ALTER TABLE `privileges`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `privilege_level` (`privilege_level`);
+
+--
+--
+--
+ ALTER TABLE `suppliers`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -231,10 +248,17 @@ MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 ALTER TABLE `users`
 MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `user_groups`
+-- AUTO_INCREMENT for table `privileges`
 --
-ALTER TABLE `user_groups`
+ALTER TABLE `privileges`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
+MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+
+
 --
 -- Constraints for dumped tables
 --
@@ -243,7 +267,8 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-ADD CONSTRAINT `FK_products` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `FK_categories` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `FK_suppliers` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sales`
@@ -255,7 +280,7 @@ ADD CONSTRAINT `SK` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON D
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-ADD CONSTRAINT `FK_user` FOREIGN KEY (`user_level`) REFERENCES `user_groups` (`group_level`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `FK_user` FOREIGN KEY (`user_level`) REFERENCES `privileges` (`privilege_level`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;

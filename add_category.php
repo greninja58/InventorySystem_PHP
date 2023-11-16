@@ -35,7 +35,7 @@
      </div>
   </div>
    <div class="row">
-    <!-- <div class="col-md-5">
+    <div class="col-md-15">
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong>
@@ -52,13 +52,13 @@
         </form>
         </div>
       </div>
-    </div> -->
-    <div class="col-md-15">
+    </div>
+    <!-- <div class="col-md-7">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
-          
-          <span>View Categories</span>
+          <span class="glyphicon glyphicon-th"></span>
+          <span>All Categories</span>
        </strong>
       </div>
         <div class="panel-body">
@@ -92,7 +92,7 @@
           </table>
        </div>
     </div>
-    </div>
+    </div> -->
    </div>
   </div>
   <?php include_once('layouts/footer.php'); ?>

@@ -3,7 +3,15 @@ $page_title = 'All Product';
 require_once('includes/load.php');
 
 page_require_level(3);
-$products = sort_by_date_join_product_table();
+
+?>
+<?php
+  $products = supplier_join_product_table((int)$_GET['id']);
+  
+  if(!$products){
+    $session->msg("d","Missing supplier id.");
+    redirect('suppliers.php');
+  }
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">
@@ -16,7 +24,7 @@ $products = sort_by_date_join_product_table();
         <div class="pull-right">
         <a href="low_stock_products.php" class="btn btn-primary">Get low stock products</a>
           <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity</a>
-          <a href="descending_quantity_products.php" class="btn btn-primary">Sort by quantity in descending order</a>
+          <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity in descending order</a>
           <a href="recent_products.php" class="btn btn-primary">Sort by date</a>
           <a href="alphabetically_products.php" class = "btn btn-primary">Sort alphabetically</a>
           
@@ -32,6 +40,7 @@ $products = sort_by_date_join_product_table();
               <th class="text-center" style="width: 10%;">P_ID</th>
               <!-- <th> Photo</th> -->
               <th class="text-center" style="width: 10%;"> Name of Product </th>
+              <th class="text-center" style="width: 10%;"> Supplier name</th>
               <th class="text-center" style="width: 10%;"> Product Category </th>
               <th class="text-center" style="width: 10%;"> Current quantity </th>
               <th class="text-center" style="width: 10%;"> Supplier buying cost </th>
@@ -51,6 +60,9 @@ $products = sort_by_date_join_product_table();
                 </td> -->
                 <td>
                   <?php echo remove_junk($product['name']); ?>
+                </td>
+                <td class="text-center">
+                  <?php echo remove_junk($product['supplier']); ?>
                 </td>
                 <td class="text-center">
                   <?php echo remove_junk($product['categorie']); ?>

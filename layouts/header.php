@@ -23,15 +23,13 @@
   <body>
   <?php  if ($session->isUserLoggedIn(true)): ?>
     <header id="header">
-      <div class="logo pull-left"> Inventory System </div>
+      <div class="logo pull-left">Stock Management</div>
       <div class="header-content">
       <div class="header-date pull-left">
-        <strong><?php 
-        date_default_timezone_set('Asia/Kolkata');
-        echo date("F j, Y, g:i a");?></strong>
+        <strong>Welcome to inventory management!</strong>
       </div>
       <div class="pull-right clearfix">
-        <ul class="info-menu list-inline list-unstyled">
+        <!-- <ul class="info-menu list-inline list-unstyled">
           <li class="profile">
             <a href="#" data-toggle="dropdown" class="toggle" aria-expanded="false">
               <img src="uploads/users/<?php echo $user['image'];?>" alt="user-image" class="img-circle img-inline">
@@ -53,7 +51,7 @@
              </li>
            </ul>
           </li>
-        </ul>
+        </ul> -->
       </div>
      </div>
     </header>

@@ -4,15 +4,17 @@
  
   page_require_level(2);
   $all_categories = find_all('categories');
+  $all_suppliers = find_all('suppliers');
   // $all_photo = find_all('media');
 ?>
 <?php
  if(isset($_POST['add_product'])){
-   $req_fields = array('product-title','product-categorie','product-quantity','buying-price', 'saleing-price' );
+   $req_fields = array('product-title','product-categorie','product-supplier','product-quantity','buying-price', 'saleing-price' );
    validate_fields($req_fields);
    if(empty($errors)){
      $p_name  = remove_junk($db->escape($_POST['product-title']));
      $p_cat   = remove_junk($db->escape($_POST['product-categorie']));
+     $p_sup   = remove_junk($db->escape($_POST['product-supplier']));
      $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
      $p_buy   = remove_junk($db->escape($_POST['buying-price']));
      $p_sale  = remove_junk($db->escape($_POST['saleing-price']));
@@ -20,11 +22,11 @@
      $date    = make_date();
      $query  = "INSERT INTO products (";
     
-     $query .=" name,quantity,buy_price,sale_price,categorie_id,date";
+     $query .=" name,quantity,buy_price,sale_price,categorie_id,supplier_id,date";
 
      $query .=") VALUES (";
     
-     $query .=" '{$p_name}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}',  '{$date}'";
+     $query .=" '{$p_name}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}',  '{$p_sup}', '{$date}'";
      
      $query .=")";
      $query .=" ON DUPLICATE KEY UPDATE name='{$p_name}'";
@@ -78,6 +80,15 @@
                     <?php  foreach ($all_categories as $cat): ?>
                       <option value="<?php echo (int)$cat['id'] ?>">
                         <?php echo $cat['name'] ?></option>
+                    <?php endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="form-control" name="product-supplier">
+                      <option value="">Select Supplier</option>
+                    <?php  foreach ($all_suppliers as $sup): ?>
+                      <option value="<?php echo (int)$sup['id'] ?>">
+                        <?php echo $sup['name'] ?></option>
                     <?php endforeach; ?>
                     </select>
                   </div>

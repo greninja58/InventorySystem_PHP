@@ -4,26 +4,26 @@
   
   page_require_level(3);
   
-  $all_categories = find_all('categories')
+  $all_suppliers = find_all('suppliers')
 ?>
 <?php
- if(isset($_POST['add_cat'])){
-   $req_field = array('categorie-name');
+ if(isset($_POST['add_sup'])){
+   $req_field = array('supplier-name');
    validate_fields($req_field);
-   $cat_name = remove_junk($db->escape($_POST['categorie-name']));
+   $sup_name = remove_junk($db->escape($_POST['supplier-name']));
    if(empty($errors)){
-      $sql  = "INSERT INTO categories (name)";
-      $sql .= " VALUES ('{$cat_name}')";
+      $sql  = "INSERT INTO supplier (name)";
+      $sql .= " VALUES ('{$sup_name}')";
       if($db->query($sql)){
-        $session->msg("s", "Successfully Added New Category");
-        redirect('categorie.php',false);
+        $session->msg("s", "Successfully Added New Supplier");
+        redirect('suppliers.php',false);
       } else {
         $session->msg("d", "Sorry Failed to insert.");
-        redirect('categorie.php',false);
+        redirect('add_supplier.php',false);
       }
    } else {
      $session->msg("d", $errors);
-     redirect('categorie.php',false);
+     redirect('suppliers.php',false);
    }
  }
 ?>
@@ -35,30 +35,30 @@
      </div>
   </div>
    <div class="row">
-    <!-- <div class="col-md-5">
+    <div class="col-md-15">
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Add New Category</span>
+            <span>Add New Supplier</span>
          </strong>
         </div>
         <div class="panel-body">
-          <form method="post" action="categorie.php">
+          <form method="post" action="add_supplier.php">
             <div class="form-group">
-                <input type="text" class="form-control" name="categorie-name" placeholder="Category Name">
+                <input type="text" class="form-control" name="supplier-name" placeholder="Supplier Name">
             </div>
-            <button type="submit" name="add_cat" class="btn btn-primary">Add Category</button>
+            <button type="submit" name="add_sup" class="btn btn-primary">Add Supplier</button>
         </form>
         </div>
       </div>
-    </div> -->
-    <div class="col-md-15">
+    </div>
+    <!-- <div class="col-md-7">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
-          
-          <span>View Categories</span>
+          <span class="glyphicon glyphicon-th"></span>
+          <span>All Categories</span>
        </strong>
       </div>
         <div class="panel-body">
@@ -71,7 +71,7 @@
                 </tr>
             </thead>
             <tbody>
-              <?php foreach ($all_categories as $cat):?>
+              <?php foreach ($all_suppliers as $cat):?>
                 <tr>
                     <td class="text-center"><?php echo count_id();?></td>
                     <td><?php echo remove_junk(ucfirst($cat['name'])); ?></td>
@@ -92,7 +92,7 @@
           </table>
        </div>
     </div>
-    </div>
+    </div> -->
    </div>
   </div>
   <?php include_once('layouts/footer.php'); ?>

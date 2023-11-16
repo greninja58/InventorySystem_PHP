@@ -140,10 +140,10 @@ function tableExists($table){
       global $db;
       $results = array();
       $sql = "SELECT u.id,u.name,u.username,u.user_level,u.last_login,";
-      $sql .="g.group_name ";
+      $sql .="g.privilege_name ";
       $sql .="FROM users u ";
-      $sql .="LEFT JOIN user_groups g ";
-      $sql .="ON g.group_level=u.user_level ORDER BY u.name ASC";
+      $sql .="LEFT JOIN privileges g ";
+      $sql .="ON g.privilege_level=u.user_level ORDER BY u.name ASC";
       $result = find_by_sql($sql);
       return $result;
   }
@@ -166,7 +166,7 @@ function tableExists($table){
   function find_by_groupName($val)
   {
     global $db;
-    $sql = "SELECT group_name FROM user_groups WHERE group_name = '{$db->escape($val)}' LIMIT 1 ";
+    $sql = "SELECT privilege_name FROM privileges WHERE privilege_name = '{$db->escape($val)}' LIMIT 1 ";
     $result = $db->query($sql);
     return($db->num_rows($result) === 0 ? true : false);
   }
@@ -176,7 +176,7 @@ function tableExists($table){
   function find_by_groupLevel($level)
   {
     global $db;
-    $sql = "SELECT group_level FROM user_groups WHERE group_level = '{$db->escape($level)}' LIMIT 1 ";
+    $sql = "SELECT privilege_level FROM privileges WHERE privilege_level = '{$db->escape($level)}' LIMIT 1 ";
     $result = $db->query($sql);
     return($db->num_rows($result) === 0 ? true : false);
   }
@@ -212,15 +212,33 @@ function tableExists($table){
      $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
 
     // $sql  .=" AS categorie,m.file_name AS image";
-    $sql  .=" AS categorie";
-
+    $sql  .=" AS categorie, s.name";
+    $sql .= " AS supplier"; 
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+    $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
     // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
     $sql  .=" ORDER BY p.id ASC";
     return find_by_sql($sql);
 
    }
+   function supplier_join_product_table($supplier_id){
+    global $db;
+   //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+
+   // $sql  .=" AS categorie,m.file_name AS image";
+   $sql  .=" AS categorie, s.name";
+   $sql .= " AS supplier"; 
+   $sql  .=" FROM products p";
+   $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+   $sql  .=" LEFT JOIN suppliers s ON s.id = p.supplier_id";
+   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" WHERE p.supplier_id =".$supplier_id;
+   $sql  .=" ORDER BY p.id ASC";
+   return find_by_sql($sql);
+
+  }
    function sort_by_quantity_join_product_table(){
     global $db;
    //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
@@ -233,6 +251,39 @@ function tableExists($table){
    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
    // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
    $sql  .=" ORDER BY p.quantity ASC";
+   
+   return find_by_sql($sql);
+
+  }
+  function get_low_stock_join_product_table(){
+    global $db;
+   //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+
+   // $sql  .=" AS categorie,m.file_name AS image";
+   $sql  .=" AS categorie";
+
+   $sql  .=" FROM products p";
+   $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+   $sql  .=" WHERE p.quantity <= 10";
+   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" ORDER BY p.quantity ASC";
+   
+   return find_by_sql($sql);
+
+  }
+  function sort_by_quantity_desc_join_product_table(){
+    global $db;
+   //  $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.date,c.name";
+
+   // $sql  .=" AS categorie,m.file_name AS image";
+   $sql  .=" AS categorie";
+
+   $sql  .=" FROM products p";
+   $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+   // $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+   $sql  .=" ORDER BY p.quantity DESC";
    return find_by_sql($sql);
 
   }
@@ -326,6 +377,17 @@ function tableExists($table){
    $sql  .= " ORDER BY p.id DESC LIMIT ".$db->escape((int)$limit);
    return find_by_sql($sql);
  }
+ function low_stock_join_product_table($limit){
+  global $db;
+ //  $sql   = " SELECT p.id,p.name,p.sale_price,p.media_id,c.name AS categorie,";
+  $sql   = " SELECT p.id,p.name,p.quantity,c.name AS categorie FROM products p";
+
+ //  $sql  .= "m.file_name AS image FROM products p";
+  $sql  .= " LEFT JOIN categories c ON c.id = p.categorie_id";
+ //  $sql  .= " LEFT JOIN media m ON m.id = p.media_id";
+  $sql  .= " ORDER BY p.quantity ASC LIMIT ".$db->escape((int)$limit);
+  return find_by_sql($sql);
+}
  /*--------------------------------------------------------------*/
  /* Function for Find Highest saleing Product
  /*--------------------------------------------------------------*/

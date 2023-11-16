@@ -14,10 +14,12 @@ $products = join_product_table();
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
         <div class="pull-right">
+        <a href="low_stock_products.php" class="btn btn-primary">Get low stock products</a>
           <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity</a>
+          <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity in descending order</a>
           <a href="recent_products.php" class="btn btn-primary">Sort by date</a>
           <a href="alphabetically_products.php" class = "btn btn-primary">Sort alphabetically</a>
-          <a href="add_product.php" class="btn btn-primary">Add New</a>
+          
           
           <a href="print_product.php" class="btn btn-primary text-red-500" ">Save PDF</a>
 
@@ -27,15 +29,16 @@ $products = join_product_table();
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th class="text-center" style="width: 50px;">#</th>
+              <th class="text-center" style="width: 10%;">P_ID</th>
               <!-- <th> Photo</th> -->
-              <th> Product Title </th>
-              <th class="text-center" style="width: 10%;"> Categories </th>
-              <th class="text-center" style="width: 10%;"> In-Stock </th>
-              <th class="text-center" style="width: 10%;"> Buying Price </th>
-              <th class="text-center" style="width: 10%;"> Selling Price </th>
-              <th class="text-center" style="width: 10%;"> Product Added </th>
-              <th class="text-center" style="width: 100px;"> Actions </th>
+              <th class="text-center" style="width: 10%;"> Name of Product </th>
+              <th class="text-center" style="width: 10%;"> Supplier name</th>
+              <th class="text-center" style="width: 10%;"> Product Category </th>
+              <th class="text-center" style="width: 10%;"> Current quantity </th>
+              <th class="text-center" style="width: 10%;"> Supplier buying cost </th>
+              <th class="text-center" style="width: 10%;"> Retail Cost </th>
+              <th class="text-center" style="width: 10%;"> Date </th>
+              <th class="text-center" style="width: 10%;"> Edit/Delete </th>
             </tr>
           </thead>
           <tbody>
@@ -49,6 +52,9 @@ $products = join_product_table();
                 </td> -->
                 <td>
                   <?php echo remove_junk($product['name']); ?>
+                </td>
+                <td class="text-center">
+                  <?php echo remove_junk($product['supplier']); ?>
                 </td>
                 <td class="text-center">
                   <?php echo remove_junk($product['categorie']); ?>

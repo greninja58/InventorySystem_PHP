@@ -3,7 +3,7 @@ $page_title = 'All Product';
 require_once('includes/load.php');
 
 page_require_level(3);
-$products = sort_by_date_join_product_table();
+$products = sort_by_quantity_desc_join_product_table();
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">
@@ -16,7 +16,7 @@ $products = sort_by_date_join_product_table();
         <div class="pull-right">
         <a href="low_stock_products.php" class="btn btn-primary">Get low stock products</a>
           <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity</a>
-          <a href="descending_quantity_products.php" class="btn btn-primary">Sort by quantity in descending order</a>
+          <a href="ascending_quantity_products.php" class="btn btn-primary">Sort by quantity in descending order</a>
           <a href="recent_products.php" class="btn btn-primary">Sort by date</a>
           <a href="alphabetically_products.php" class = "btn btn-primary">Sort alphabetically</a>
           

@@ -10,8 +10,8 @@
  $c_sale          = count_by_id('sales');
  $c_user          = count_by_id('users');
  $products_sold   = find_higest_saleing_product('10');
- $recent_products = find_recent_product_added('5');
- $recent_sales    = find_recent_sale_added('5')
+ $low_stock_products = low_stock_join_product_table('10');
+ $recent_sales    = find_recent_sale_added('10')
 ?>
 <?php include_once('layouts/header.php'); ?>
 
@@ -21,7 +21,7 @@
    </div>
 </div>
   <div class="row">
-    <a href="users.php" style="color:black;">
+    <!-- <a href="users.php" style="color:black;">
 		<div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left" style="background: #1b1e62;">
@@ -75,11 +75,13 @@
         </div>
        </div>
     </div>
-	</a>
+	</a> -->
 </div>
   
   <div class="row">
-   <div class="col-md-4">
+  <center><h4 style="color: blue;"  >Top products in sale - Title vs Quantity</h4></center>
+ <canvas id="myChart1" style="max-width: 900px; display: block; margin: auto; height: 450px; width: 900px;"></canvas>
+   <div class="col-md-4" style="display: none;">
      <div class="panel panel-default">
        <div class="panel-heading">
          <strong>
@@ -114,7 +116,7 @@
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>LATEST SALES</span>
+            <span>Recent Sales</span>
           </strong>
         </div>
         <div class="panel-body">
@@ -151,29 +153,29 @@
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Recently Added Products</span>
+          <span>Low stock products</span>
         </strong>
       </div>
       <div class="panel-body">
 
         <div id = "recently_added" class="list-group">
-      <?php foreach ($recent_products as  $recent_product): ?>
-            <a class="list-group-item clearfix" href="edit_product.php?id=<?php echo    (int)$recent_product['id'];?>">
+      <?php foreach ($low_stock_products as  $low_stock_product): ?>
+            <a class="list-group-item clearfix" href="edit_product.php?id=<?php echo    (int)$low_stock_product['id'];?>">
                 <h4 class="list-group-item-heading">
-                 <!-- <?php if($recent_product['media_id'] === '0'): ?>
+                 <!-- <?php if($low_stock_product['media_id'] === '0'): ?>
                     <img class="img-avatar img-circle" src="uploads/products/no_image.png" alt="">
                   <?php else: ?>
-                  <img class="img-avatar img-circle" src="uploads/products/<?php echo $recent_product['image'];?>" alt="" />
+                  <img class="img-avatar img-circle" src="uploads/products/<?php echo $low_stock_product['image'];?>" alt="" />
                 <?php endif;?> -->
                 <span id = "name_recently">
-                  <?php echo remove_junk(first_character($recent_product['name']));?>
+                  <?php echo remove_junk(first_character($low_stock_product['name']));?>
                 </span>
                   <span id="price_recently" class="label label-warning pull-right">
-                  <icon class="fa fa-inr"></icon><?php echo (int)$recent_product['sale_price']; ?>
+                  <?php echo (int)$low_stock_product['quantity']; ?>
                   </span>
                 </h4>
                 <span class="list-group-item-text pull-right">
-                <?php echo remove_junk(first_character($recent_product['categorie'])); ?>
+                <?php echo remove_junk(first_character($low_stock_product['categorie'])); ?>
               </span>
           </a>
       <?php endforeach; ?>
@@ -185,8 +187,7 @@
 </div>
 
  </div>
- <h4>Highest selling products plot - Title vs Quantity</h4>
- <canvas id="myChart1" style="max-width: 900px; display: block; margin: auto; height: 450px; width: 900px;"></canvas>
+ 
  
 <script>
 let xValuesHighest = [];

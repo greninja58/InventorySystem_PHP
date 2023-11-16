@@ -3,7 +3,7 @@ $page_title = 'All Product';
 require_once('includes/load.php');
 
 page_require_level(3);
-$products = sort_by_date_join_product_table();
+$products = get_low_stock_join_product_table();
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">
